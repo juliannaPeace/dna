@@ -1,3 +1,9 @@
 server:
+  port: 8080
   error:
     include-stacktrace: never
+spring:
+  datasource:
+    url: ${JDBC_URL:jdbc:postgresql://localhost:5432/dna}
+    username: ${JDBC_USER_NAME:admin}
+    password: ${JDBC_PASSWORD:meli2021go}
