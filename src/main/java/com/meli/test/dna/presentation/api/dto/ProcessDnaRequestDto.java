@@ -7,6 +7,6 @@ import java.util.List;
 
 @Data
 public class ProcessDnaRequestDto {
-    @NotNull(message = "Mandatory field")
+    @NotNull(message = "Required field")
     private List<String> dna;
 }

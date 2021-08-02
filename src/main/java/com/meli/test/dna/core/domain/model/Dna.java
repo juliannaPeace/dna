@@ -1,6 +1,7 @@
 package com.meli.test.dna.core.domain.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -10,16 +11,18 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Builder
 public class Dna {
 
     private UUID id;
     private final List<String> sequenceDna;
     private Boolean isSimian;
-    private static Integer counterDnaSimian = 0;
+    private static Integer counterDnaSimian;
 
     private static final int MIN_LETTER = 4;
 
     public void verifyIsSimian() {
+        counterDnaSimian = 0;
         setIsSimian(false);
         for (int line = 0; line < getSequenceDna().size(); line++) {
             for (int column = 0; column < getSequenceDna().size(); column++) {
