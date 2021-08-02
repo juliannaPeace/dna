@@ -1,26 +1,13 @@
 package com.meli.test.dna.presentation.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.io.Serializable;
-
-public class ProcessDnaResponseDto implements Serializable {
+@AllArgsConstructor
+@Data
+public class ProcessDnaResponseDto {
+    @JsonProperty("is_simian")
     private Boolean isSimian;
 
-    public ProcessDnaResponseDto(Boolean isSimian) {
-        this.isSimian = isSimian;
-    }
-
-    public ProcessDnaResponseDto() {
-    }
-
-
-    @JsonProperty("is_simian")
-    public Boolean getSimian() {
-        return isSimian;
-    }
-
-    public void setSimian(Boolean simian) {
-        isSimian = simian;
-    }
 }

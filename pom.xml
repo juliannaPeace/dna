@@ -64,6 +64,11 @@
             <artifactId>hibernate-types-52</artifactId>
             <version>2.3.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
