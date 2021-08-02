@@ -16,7 +16,16 @@ public class DnaService {
 
     public Boolean resultProcessSequenceDna(Dna dna) {
 
+        var isSimian = false;
+
+        for (int i = 0; i < dna.getSequenceDna().size(); i++) {
+            for (int j = 0; j < dna.getSequenceDna().size(); j++) {
+                isSimian = dna.verificaHorizontal(i, j);
+            }
+        }
+
+        dna.setSimian(isSimian);
         dnaRepository.save(new DnaEntity().dnaToDnaEntity(dna));
-        return true;
+        return dna.getSimian();
     }
 }

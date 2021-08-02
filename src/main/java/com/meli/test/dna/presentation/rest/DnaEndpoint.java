@@ -26,8 +26,7 @@ public class DnaEndpoint {
     @PostMapping(DnaApi.URI_PROCESS_DNA)
     public ResponseEntity<ProcessDnaResponseDto> processDna(@Valid @RequestBody ProcessDnaRequestDto processDnaRequestDto) {
 
-        var dnaJson = new Gson().toJson(processDnaRequestDto.getDna());
-        var result = dnaService.resultProcessSequenceDna(new Dna(dnaJson));
+        var result = dnaService.resultProcessSequenceDna(new Dna(processDnaRequestDto.getDna()));
         var processDnaResponseDto = new ProcessDnaResponseDto(result);
 
         return ResponseEntity.ok(processDnaResponseDto);
