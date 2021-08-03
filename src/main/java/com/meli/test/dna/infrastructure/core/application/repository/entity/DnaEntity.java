@@ -20,7 +20,6 @@ public class DnaEntity {
     @Id
     private UUID id;
 
-//    @Type(type = "jsonb")
     @Column(columnDefinition = "TEXT")
     private String sequenceDna;
     private Boolean isSimian;
