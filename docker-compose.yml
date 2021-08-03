@@ -2,23 +2,11 @@ version: '3.4'
 services:
   postgres-compose:
     image: postgres:13.1
-    environment:
-      POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: "meli2021go"
-      POSTGRES_DB: "dna"
     ports:
       - "5432:5432"
     restart: always
   api-meli:
-    image: juliannapaz/meli_dna
+    image: juliannapaz/meli_dna:1.0
     restart: unless-stopped
-    build:
-      context: .
-    environment:
-      JDBC_URL: "jdbc:postgresql://postgres-compose:5432/dna"
-      JDBC_USER_NAME: "admin"
-      JDBC_PASSWORD: "meli2021go"
     ports:
         - "8080:8080"
-
-
