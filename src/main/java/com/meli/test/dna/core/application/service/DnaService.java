@@ -3,16 +3,14 @@ package com.meli.test.dna.core.application.service;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.meli.test.dna.core.application.repository.DnaRepository;
+import com.meli.test.dna.core.domain.exception.DnaSequenceException;
+import com.meli.test.dna.core.domain.exception.QuadraticMatrixException;
 import com.meli.test.dna.core.domain.exception.UniqueConstraintException;
 import com.meli.test.dna.core.domain.model.Dna;
 import com.meli.test.dna.core.domain.model.DnaStats;
 import com.meli.test.dna.infrastructure.core.application.repository.entity.DnaEntity;
-import com.meli.test.dna.core.domain.exception.DnaSequenceException;
-import com.meli.test.dna.core.domain.exception.QuadraticMatrixException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.text.DecimalFormat;
 
 @Service
 @RequiredArgsConstructor
