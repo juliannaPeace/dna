@@ -2,12 +2,8 @@ package com.meli.test.dna.infrastructure.core.application.repository.entity;
 
 import com.google.gson.Gson;
 import com.meli.test.dna.core.domain.model.Dna;
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,17 +14,14 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "dna")
-@TypeDefs({
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-})
 @AllArgsConstructor
 @NoArgsConstructor
 public class DnaEntity {
     @Id
     private UUID id;
 
-    @Type(type = "jsonb")
-    @Column(columnDefinition = "json")
+//    @Type(type = "jsonb")
+    @Column(columnDefinition = "TEXT")
     private String sequenceDna;
     private Boolean isSimian;
 

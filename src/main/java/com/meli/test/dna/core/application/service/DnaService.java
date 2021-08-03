@@ -12,6 +12,8 @@ import com.meli.test.dna.core.domain.exception.QuadraticMatrixException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
+
 @Service
 @RequiredArgsConstructor
 public class DnaService {

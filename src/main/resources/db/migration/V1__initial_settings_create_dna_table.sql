@@ -1,7 +1,7 @@
 CREATE TABLE dna
 (
     id           uuid PRIMARY KEY,
-    sequence_dna jsonb NOT NULL,
+    sequence_dna TEXT NOT NULL,
     is_simian    boolean   NOT NULL
 );
 

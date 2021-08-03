@@ -28,6 +28,8 @@ public class Dna {
             for (int column = 0; column < getSequenceDna().size(); column++) {
                 runHorizontally(line, column);
                 runVertically(line, column);
+                runDiagonalRigth(line, column);
+                runDiagonalLeft(line, column);
             }
         }
         if (counterDnaSimian >= 2) {
@@ -71,6 +73,56 @@ public class Dna {
                 }
                 qtdeRepeticoes++;
                 ordem++;
+            }
+
+            if (qtdeRepeticoes == MIN_LETTER) {
+                counterDnaSimian++;
+            }
+        }
+
+        return counterDnaSimian;
+    }
+
+    public int runDiagonalRigth(int linha, int coluna) {
+        var letter = getSequenceDna().get(linha).charAt(coluna);
+
+        if (coluna + MIN_LETTER - 1 < getSequenceDna().size()) {
+            int ordemColuna = coluna;
+            int ordemLinha = linha;
+            int qtdeRepeticoes = 0;
+
+            while ((ordemColuna) < getSequenceDna().size() && (ordemLinha) < getSequenceDna().size()) {
+                if (letter != getSequenceDna().get(ordemLinha).charAt(ordemColuna)) {
+                    break;
+                }
+                qtdeRepeticoes++;
+                ordemColuna++;
+                ordemLinha++;
+            }
+
+            if (qtdeRepeticoes == MIN_LETTER) {
+                counterDnaSimian++;
+            }
+        }
+
+        return counterDnaSimian;
+    }
+
+    public int runDiagonalLeft(int linha, int coluna) {
+        var letter = getSequenceDna().get(linha).charAt(coluna);
+
+        if (linha + MIN_LETTER - 1 < getSequenceDna().size()) {
+            int ordemColuna = coluna;
+            int ordemLinha = linha;
+            int qtdeRepeticoes = 0;
+
+            while ((ordemColuna) >= 0 && (ordemColuna) < getSequenceDna().size() && (ordemLinha) < getSequenceDna().size()) {
+                if (letter != getSequenceDna().get(ordemLinha).charAt(ordemColuna)) {
+                    break;
+                }
+                qtdeRepeticoes++;
+                ordemColuna--;
+                ordemLinha++;
             }
 
             if (qtdeRepeticoes == MIN_LETTER) {
