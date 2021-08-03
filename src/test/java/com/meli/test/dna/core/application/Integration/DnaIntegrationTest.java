@@ -6,7 +6,6 @@ import com.meli.test.dna.infrastructure.core.application.service.flyway.FlywayMi
 import com.meli.test.dna.presentation.api.DnaApi;
 import com.meli.test.dna.presentation.api.dto.ProcessDnaResponseDto;
 import com.meli.test.dna.presentation.api.dto.ProcessDnaStatsResponseDto;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +16,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Import(FlywayMigrationConfig.class)
@@ -37,10 +38,10 @@ public class DnaIntegrationTest {
         ResponseEntity<ProcessDnaResponseDto> processDnaResponse = testRestTemplate
                 .postForEntity(DnaApi.URI_PROCESS_DNA, processDnaRequestDto, ProcessDnaResponseDto.class);
 
-        Assertions.assertThat(processDnaResponse).isNotNull();
-        Assertions.assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(processDnaResponse.getBody()).isNotNull();
-        Assertions.assertThat(processDnaResponse.getBody().getIsSimian()).isTrue();
+        assertThat(processDnaResponse).isNotNull();
+        assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(processDnaResponse.getBody()).isNotNull();
+        assertThat(processDnaResponse.getBody().getIsSimian()).isTrue();
 
     }
 
@@ -52,10 +53,10 @@ public class DnaIntegrationTest {
         ResponseEntity<ProcessDnaResponseDto> processDnaResponse = testRestTemplate
                 .postForEntity(DnaApi.URI_PROCESS_DNA, processDnaRequestDto, ProcessDnaResponseDto.class);
 
-        Assertions.assertThat(processDnaResponse).isNotNull();
-        Assertions.assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(processDnaResponse.getBody()).isNotNull();
-        Assertions.assertThat(processDnaResponse.getBody().getIsSimian()).isFalse();
+        assertThat(processDnaResponse).isNotNull();
+        assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(processDnaResponse.getBody()).isNotNull();
+        assertThat(processDnaResponse.getBody().getIsSimian()).isFalse();
 
     }
 
@@ -67,10 +68,10 @@ public class DnaIntegrationTest {
         ResponseEntity<ProcessDnaResponseDto> processDnaResponse = testRestTemplate
                 .postForEntity(DnaApi.URI_PROCESS_DNA, processDnaRequestDto, ProcessDnaResponseDto.class);
 
-        Assertions.assertThat(processDnaResponse).isNotNull();
-        Assertions.assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        Assertions.assertThat(processDnaResponse.getBody()).isNotNull();
-        Assertions.assertThat(processDnaResponse.getBody().getIsSimian()).isNull();
+        assertThat(processDnaResponse).isNotNull();
+        assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(processDnaResponse.getBody()).isNotNull();
+        assertThat(processDnaResponse.getBody().getIsSimian()).isNull();
 
     }
 
@@ -82,10 +83,10 @@ public class DnaIntegrationTest {
         ResponseEntity<ProcessDnaResponseDto> processDnaResponse = testRestTemplate
                 .postForEntity(DnaApi.URI_PROCESS_DNA, processDnaRequestDto, ProcessDnaResponseDto.class);
 
-        Assertions.assertThat(processDnaResponse).isNotNull();
-        Assertions.assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
-        Assertions.assertThat(processDnaResponse.getBody()).isNotNull();
-        Assertions.assertThat(processDnaResponse.getBody().getIsSimian()).isNull();
+        assertThat(processDnaResponse).isNotNull();
+        assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+        assertThat(processDnaResponse.getBody()).isNotNull();
+        assertThat(processDnaResponse.getBody().getIsSimian()).isNull();
 
     }
 
@@ -97,10 +98,10 @@ public class DnaIntegrationTest {
         ResponseEntity<ProcessDnaResponseDto> processDnaResponse = testRestTemplate
                 .postForEntity(DnaApi.URI_PROCESS_DNA, processDnaRequestDto, ProcessDnaResponseDto.class);
 
-        Assertions.assertThat(processDnaResponse).isNotNull();
-        Assertions.assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.CONFLICT);
-        Assertions.assertThat(processDnaResponse.getBody()).isNotNull();
-        Assertions.assertThat(processDnaResponse.getBody().getIsSimian()).isNull();
+        assertThat(processDnaResponse).isNotNull();
+        assertThat(processDnaResponse.getStatusCode()).isEqualTo(HttpStatus.CONFLICT);
+        assertThat(processDnaResponse.getBody()).isNotNull();
+        assertThat(processDnaResponse.getBody().getIsSimian()).isNull();
 
     }
 
@@ -110,12 +111,12 @@ public class DnaIntegrationTest {
         ResponseEntity<ProcessDnaStatsResponseDto> processDnaStatsResponse = testRestTemplate
                 .getForEntity(DnaApi.URI_PROCESS_DNA_STATS, ProcessDnaStatsResponseDto.class);
 
-        Assertions.assertThat(processDnaStatsResponse).isNotNull();
-        Assertions.assertThat(processDnaStatsResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
-        Assertions.assertThat(processDnaStatsResponse.getBody()).isNotNull();
-        Assertions.assertThat(processDnaStatsResponse.getBody().getCountSimianDna()).isEqualTo(1);
-        Assertions.assertThat(processDnaStatsResponse.getBody().getCountHumanDna()).isEqualTo(2);
-        Assertions.assertThat(processDnaStatsResponse.getBody().getRatio()).isEqualTo(0.5);
+        assertThat(processDnaStatsResponse).isNotNull();
+        assertThat(processDnaStatsResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(processDnaStatsResponse.getBody()).isNotNull();
+        assertThat(processDnaStatsResponse.getBody().getCountSimianDna()).isEqualTo(1);
+        assertThat(processDnaStatsResponse.getBody().getCountHumanDna()).isEqualTo(2);
+        assertThat(processDnaStatsResponse.getBody().getRatio()).isEqualTo(0.5);
 
     }
 }

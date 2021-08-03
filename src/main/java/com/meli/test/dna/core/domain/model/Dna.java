@@ -37,22 +37,22 @@ public class Dna {
         }
     }
 
-    public int runHorizontally(int linha, int coluna) {
-        var letter = getSequenceDna().get(linha).charAt(coluna);
+    public int runHorizontally(int line, int column) {
+        var letter = getSequenceDna().get(line).charAt(column);
 
-        if (coluna + MIN_LETTER - 1 < getSequenceDna().size()) {
-            int ordem = coluna;
-            int qtdeRepeticoes = 0;
+        if (column + MIN_LETTER - 1 < getSequenceDna().size()) {
+            int order = column;
+            int repetitions = 0;
 
-            while (ordem < getSequenceDna().size()) {
-                if (letter != getSequenceDna().get(linha).charAt(ordem)) {
+            while (order < getSequenceDna().size()) {
+                if (letter != getSequenceDna().get(line).charAt(order)) {
                     break;
                 }
-                qtdeRepeticoes++;
-                ordem++;
+                repetitions++;
+                order++;
             }
 
-            if (qtdeRepeticoes == MIN_LETTER) {
+            if (repetitions == MIN_LETTER) {
                 counterDnaSimian++;
             }
         }
@@ -60,22 +60,22 @@ public class Dna {
         return counterDnaSimian;
     }
 
-    public int runVertically(int linha, int coluna) {
-        var letter = getSequenceDna().get(coluna).charAt(linha);
+    public int runVertically(int line, int column) {
+        var letter = getSequenceDna().get(column).charAt(line);
 
-        if (coluna + MIN_LETTER - 1 < getSequenceDna().size()) {
-            int ordem = coluna;
-            int qtdeRepeticoes = 0;
+        if (column + MIN_LETTER - 1 < getSequenceDna().size()) {
+            int order = column;
+            int repetitions = 0;
 
-            while (ordem < getSequenceDna().size()) {
-                if (letter != getSequenceDna().get(ordem).charAt(linha)) {
+            while (order < getSequenceDna().size()) {
+                if (letter != getSequenceDna().get(order).charAt(line)) {
                     break;
                 }
-                qtdeRepeticoes++;
-                ordem++;
+                repetitions++;
+                order++;
             }
 
-            if (qtdeRepeticoes == MIN_LETTER) {
+            if (repetitions == MIN_LETTER) {
                 counterDnaSimian++;
             }
         }
@@ -83,24 +83,24 @@ public class Dna {
         return counterDnaSimian;
     }
 
-    public int runDiagonalRigth(int linha, int coluna) {
-        var letter = getSequenceDna().get(linha).charAt(coluna);
+    public int runDiagonalRigth(int line, int column) {
+        var letter = getSequenceDna().get(line).charAt(column);
 
-        if (coluna + MIN_LETTER - 1 < getSequenceDna().size()) {
-            int ordemColuna = coluna;
-            int ordemLinha = linha;
-            int qtdeRepeticoes = 0;
+        if (column + MIN_LETTER - 1 < getSequenceDna().size()) {
+            int orderColumn = column;
+            int orderLine = line;
+            int repetitions = 0;
 
-            while ((ordemColuna) < getSequenceDna().size() && (ordemLinha) < getSequenceDna().size()) {
-                if (letter != getSequenceDna().get(ordemLinha).charAt(ordemColuna)) {
+            while ((orderColumn) < getSequenceDna().size() && (orderLine) < getSequenceDna().size()) {
+                if (letter != getSequenceDna().get(orderLine).charAt(orderColumn)) {
                     break;
                 }
-                qtdeRepeticoes++;
-                ordemColuna++;
-                ordemLinha++;
+                repetitions++;
+                orderColumn++;
+                orderLine++;
             }
 
-            if (qtdeRepeticoes == MIN_LETTER) {
+            if (repetitions == MIN_LETTER) {
                 counterDnaSimian++;
             }
         }
@@ -108,24 +108,24 @@ public class Dna {
         return counterDnaSimian;
     }
 
-    public int runDiagonalLeft(int linha, int coluna) {
-        var letter = getSequenceDna().get(linha).charAt(coluna);
+    public int runDiagonalLeft(int line, int column) {
+        var letter = getSequenceDna().get(line).charAt(column);
 
-        if (linha + MIN_LETTER - 1 < getSequenceDna().size()) {
-            int ordemColuna = coluna;
-            int ordemLinha = linha;
-            int qtdeRepeticoes = 0;
+        if (line + MIN_LETTER - 1 < getSequenceDna().size()) {
+            int orderColumn = column;
+            int orderLine = line;
+            int repetitions = 0;
 
-            while ((ordemColuna) >= 0 && (ordemColuna) < getSequenceDna().size() && (ordemLinha) < getSequenceDna().size()) {
-                if (letter != getSequenceDna().get(ordemLinha).charAt(ordemColuna)) {
+            while ((orderColumn) >= 0 && (orderColumn) < getSequenceDna().size() && (orderLine) < getSequenceDna().size()) {
+                if (letter != getSequenceDna().get(orderLine).charAt(orderColumn)) {
                     break;
                 }
-                qtdeRepeticoes++;
-                ordemColuna--;
-                ordemLinha++;
+                repetitions++;
+                orderColumn--;
+                orderLine++;
             }
 
-            if (qtdeRepeticoes == MIN_LETTER) {
+            if (repetitions == MIN_LETTER) {
                 counterDnaSimian++;
             }
         }

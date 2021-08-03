@@ -38,6 +38,10 @@ public class DnaEndpoint {
         return ResponseEntity.ok(processDnaResponseDto);
     }
 
+    @ApiOperation(value = "Retorna as estatisticas da quantidade de humanos e simios")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna se um DNA pertence a um Simio ou a um Humano")
+    })
     @GetMapping(DnaApi.URI_PROCESS_DNA_STATS)
     public ResponseEntity<ProcessDnaStatsResponseDto> getStatsProcessDna() {
         var result = dnaService.getStatsProcessDna();
