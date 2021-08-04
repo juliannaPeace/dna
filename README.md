@@ -9,7 +9,32 @@ A api consiste em processar uma cadeia de DNA e determinar se o DNA informado é
 ### Para mais informações sobre os endpoints disponíveis consulte a documentação através da URL : <br/>
 http://35.177.191.253:8080/swagger-ui.html
 
-### Para rodar a aplicação de forma manual:
+### Para rodar a aplicação de forma manual: (branch main)
+
+rode o comando:
+
+```sh
+$ docker-compose up -d
+```
+
+Em seguida gere o build da imagem:
+
+```sh
+$ ./mvnw clean install package
+```
+Navegue até a pasta target e rode o comando:
+
+```sh
+$ java -jar dna-0.0.1-SNAPSHOT.jar
+```
+
+### Para rodar os testes execute o comando:
+
+```sh
+$ ./mvnw test
+```
+
+### Para rodar a aplicação usando imagem docker: (branch staging)
 
 Primeiro crie um arquivo chamado docker-compose.override.yml, no mesmo diretório em que se encontra o docker-compose e insira nele as variáveis de ambiente para acesso ao banco de dados
 
@@ -31,12 +56,6 @@ Em seguida rode o comando:
 
 ```sh
 $ docker-compose up -d
-```
-
-### Para rodar os testes execute o comando:
-
-```sh
-$ ./mvnw test
 ```
 
 **Tecnologias utilizadas**
