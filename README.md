@@ -7,7 +7,7 @@ A api consiste em processar uma cadeia de DNA e determinar se o DNA informado é
 ● Só serão permitidas matrizes quadráticas como payload de entrada para processamento <br/>
 
 ### Para mais informações sobre os endpoints disponíveis consulte a documentação através da URL : <br/>
-https://35.177.191.253:8080/swagger-ui.html
+http://35.177.191.253:8080/swagger-ui.html
 
 ### Para rodar a aplicação de forma manual:
 
